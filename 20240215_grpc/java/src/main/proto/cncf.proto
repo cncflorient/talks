@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.cncf.grpc";
+option java_outer_classname = "CNCFProto";
+option objc_class_prefix = "HLW";
+
+package cncf;
+
+service cncf {
+
+  rpc CreateSession (CreateSessionRequest) returns (CreateSessionReply){}
+
+  rpc GuessANumber (GuessANumberRequest) returns (GuessANumberReply){}
+
+}
+
+enum StatusCode {
+  FOUND = 0;
+  GREATER = 1;
+  LOWER = 2;
+}
+
+message CreateSessionRequest {
+  string userName = 1;
+}
+
+message CreateSessionReply {
+  bytes token = 1;
+}
+
+message GuessANumberRequest {
+  bytes token = 1;
+  int32 number = 2;
+
+}
+
+message GuessANumberReply {
+  StatusCode found=1;
+}
+
+
+

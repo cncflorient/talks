@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package cncf;
+
+option java_multiple_files = true;
+option java_package = "com.cncf.grpc.protos";
+option java_outer_classname = "AddressBookProtos";
+
+message Person {
+  optional string name = 1;
+  optional int32 id = 2;
+  optional string email = 3;
+
+  enum PhoneType {
+    MOBILE = 0;
+    HOME = 1;
+    WORK = 2;
+  }
+
+  message PhoneNumber {
+    optional string number = 1;
+    optional PhoneType type = 2;
+  }
+
+  repeated PhoneNumber phones = 4;
+}
+
+message AddressBook {
+  repeated Person people = 1;
+}
+
+message MessageCNCF {
+  int32 green = 1;
+  string it = 2;
+  sint64 isBeautiful = 3;
+}
+
+  // definition d'un enum
+  enum ThisIsOption {
+    optionA = 0;
+    optionB = 1;
+    optionC = 2;
+  }
+
+  /*
+   definition d'un message
+   */
+  message SubStructure {
+    bool firstMember  = 1;
+    int32 aSecondMember = 2;
+    uint32 sameAsPrevious = 3;
+    sint32 optimizedForNegative = 4;
+    bytes aBytesSequence = 5;
+    AMoreCompleteExample aMoreCompleteExample = 6;
+  }
+
+  // un exemple avec message imbriqué
+  message AMoreCompleteExample {
+    string stringSameAsBytes = 1;
+    repeated string stringList = 2;
+    map<int32,string> canBeAMap = 3;
+  }
+
+

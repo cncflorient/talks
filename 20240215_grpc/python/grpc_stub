@@ -1,0 +1,1 @@
+python3 -m grpc_tools.protoc --proto_path=../java/src/main/proto/ --python_out=. --grpc_python_out=. ../java/src/main/proto/cncf.proto
