@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.breizhcamp.grpc";
+option java_outer_classname = "AMoreCompleteExample";
+option objc_class_prefix = "HLW";
+
+
+enum ThisIsoption {
+  optionA=0;
+  optionB=1;
+  optionC=2;
+}
+
+
+message SubStructure{
+  bool firstMember = 1;
+  int32 aSecondMember = 2;
+  int64 aThirdMember = 3;
+  bytes aBytesSequence = 4;
+}
+
+message AMoreCompeteExample {
+  string this = 1;
+  repeated SubStructure subCanBeRepeated = 2;
+  optional string anOptionalMember = 3;
+}
+
